@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="src/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="search-container">
+      <h2 class="search-title">Digite o filme desejado.</h2>
+      <div class="search-bar">
+        <form class="search-bar-form">
+          <input type="text" class="input-movie" placeholder="A volta dos que não foram..." data-js="search-input">
+        </form>
+        <a class="search-bar-button" data-js="search-button">
+          <img src="src/search-icon.png">
+        </a>
+      </div>
+    </div>
+    <div class="cards-container hidden" id="screen2">
+      <div class="cards-content-container">
+        <div class="secondary-card">
+          <div class="movie-background-secondary">
+            <img src="" data-js="left-card-poster">
+          </div>
+          <div class="movie-informations-secondaries">
+            <h2 class="secondaries-cards-title" data-js="left-card-title">SPIDER-MAN</h2>
+            <p>Vote Avarage</p>
+            <p>Vote count</p>
+            <p>Genre:</p>
+          </div>
+        </div>
+        <div class="main-card">
+          <div class="movie-background">
+            <img src="src/poster.jpg" data-js="main-card-poster">
+          </div>
+          <div class="movie-informations">
+            <h2 class="main-card-title" data-js="left-card-title">SPIDER-MAN</h2>
+            <p>Vote Avarage</p>
+            <p>Vote count</p>
+            <p>Genre:</p>
+            <label class="synopsis-label">SYNOPSIS</label>
+            <p class="synopsis-text" data-js="main-card-synopsis">"The seemingly invincible Spider-Man goes up against an all-new crop of villains—including the shape-shifting Sandman. While Spider-Man’s superpowers are altered by an alien organism, his alter ego, Peter Parker, deals with nemesis Eddie Brock and also gets caught up in a love triangle.</p>
+          </div>
+        </div>
+        <div class="secondary-card">
+          <div class="movie-background-secondary">
+            <img src="" data-js="right-card-poster">
+          </div>
+          <div class="movie-informations-secondaries">
+            <h2 class="secondaries-cards-title" data-js="right-card-title">SPIDER-MAN</h2>
+            <p>Vote Avarage</p>
+            <p>Vote count</p>
+            <p>Genre:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
