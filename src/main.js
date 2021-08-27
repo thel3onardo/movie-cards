@@ -33,22 +33,32 @@ function getData(movieName) {
   console.log(movie);
 
   fetch(`https://api.themoviedb.org/3/search/movie?api_key=732544339751a8291cc05e685efec0e9&query=${movie}`)
-    .then((response) => response.json())
-    .then((data) => {
-      const {original_title: titleMain, overview: synopsisMain, vote_avarage: voteAvarageMain , poster_path: poster_path_main} = data.results[0];
-
-      mainCardSynopsis.textContent = synopsisMain;
-      mainCardPoster.src = `https://image.tmdb.org/t/p/w500/${poster_path_main}`;
-      mainCardTitle.textContent = titleMain;
-
-      const {original_title: titleLeft, overview: synopsisLeft, vote_avarage: voteAvarageLeft, poster_path: poster_path_left} = data.results[1];
-
-      leftCardPoster.src = `https://image.tmdb.org/t/p/w500/${poster_path_left}`;
-      leftCardTitle.textContent = titleLeft;
-
-      const {original_title: titleRight, overview: synopsisRight, vote_avarage: voteAvarageRight, poster_path: poster_path_right} = data.results[2];
-
-      rightCardPoster.src = `https://image.tmdb.org/t/p/w500/${poster_path_right}`;
-      rightCardTitle.textContent = titleRight;
+    .then((response) => {
+      console.log(response); 
+      return response.json()
     })
+    .then((data) => {
+      if (data.results.length === 0) {
+        throw new Error('Nenhum filme encontrado em nossa banco de dados.')
+      } else {
+        const {original_title: titleMain, overview: synopsisMain, vote_avarage: voteAvarageMain , poster_path: poster_path_main} = data.results[0];
+
+        mainCardSynopsis.textContent = synopsisMain;
+        mainCardPoster.src = `https://image.tmdb.org/t/p/w500/${poster_path_main}`;
+        mainCardTitle.textContent = titleMain;
+
+        const {original_title: titleLeft, overview: synopsisLeft, vote_avarage: voteAvarageLeft, poster_path: poster_path_left} = data.results[1];
+
+        leftCardPoster.src = `https://image.tmdb.org/t/p/w500/${poster_path_left}`;
+        leftCardTitle.textContent = titleLeft;
+
+        const {original_title: titleRight, overview: synopsisRight, vote_avarage: voteAvarageRight, poster_path: poster_path_right} = data.results[2];
+
+        rightCardPoster.src = `https://image.tmdb.org/t/p/w500/${poster_path_right}`;
+        rightCardTitle.textContent = titleRight;
+      }
+    })
+    //lidando com quaisquer erro que tenha ocorrido em algum dos then's.
+    .catch((error) => console.log(error))
+    
 }
